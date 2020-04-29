@@ -1,0 +1,55 @@
+version: '3'
+services:
+
+  wekandb:
+    image: mongo:4.0
+    command: mongod --smallfiles --oplogSize 128
+    volumes:
+      - /var/volumes/board/wekan-db:/data/db
+      - /var/volumes/board/wekan-db-dump:/dump
+    networks:
+      - board-intern
+    deploy:
+      placement:
+        constraints:
+          - node.labels.name == germanzero-1
+
+  wekan:
+    image: quay.io/wekan/wekan
+#    ports:
+#      - 3002:8080
+    environment:
+      - MONGO_URL=mongodb://wekandb:27017/wekan
+      - ROOT_URL=https://board.germanzero.de
+      - MAIL_URL=<smtp-server-url>
+      - MAIL_FROM=noreply@germanzero.de
+      - WITH_API=true
+      - RICHER_CARD_COMMENT_EDITOR=true
+      - CARD_OPENED_WEBHOOK_ENABLED=false
+      - MAX_IMAGE_PIXEL=1024
+      - BIGEVENTS_PATTERN=NONE
+      - BROWSER_POLICY_ENABLED=true
+      - OAUTH2_ENABLED=false
+      # - OAUTH2_CLIENT_ID=<oauth-client-id>
+      # - OAUTH2_SECRET=<oauth-secret>
+      # - OAUTH2_SERVER_URL=https://chat.germanzero.de
+      # - OAUTH2_AUTH_ENDPOINT=/oauth/authorize
+      # - OAUTH2_USERINFO_ENDPOINT=/oauth/userinfo
+      # - OAUTH2_TOKEN_ENDPOINT=/oauth/token
+      # - OAUTH2_ID_MAP=email
+      # - OAUTH2_FULLNAME_MAP=name
+      # - OAUTH2_EMAIL_MAP=email
+    depends_on:
+      - wekandb
+    networks:
+      - board-intern
+      - kong-net
+    deploy:
+      placement:
+        constraints:
+          - node.labels.name == germanzero-1
+
+networks:
+  board-intern:
+  kong-net:
+    external: true

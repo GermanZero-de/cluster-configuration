@@ -1,0 +1,47 @@
+version: '3'
+services:
+
+  api:
+    image: germanzero/api:latest
+    environment:
+      - NODE_ENV=production
+      - BASEURL=https://germanzero.de
+      - APIURL=https://api.germanzero.de
+      - ROCKETCHAT_URL=https://chat.germanzero.de
+      - ROCKETCHAT_ADMINPWD=<password>
+      - WEKAN_URL=https://board.germanzero.de
+      - WEKAN_ADMINPWD=<password>
+      - CIVICRM_URL=http://civicrm_nginx:8000
+      - CIVICRM_SITEKEY=<civicrm-site-key>
+      - CIVICRM_APIKEY=<civicrm-api-key>
+      - SMTP_HOST=<smtp-servername>
+      - SMTP_PORT=587
+      - SMTP_SECURE=false
+      - SMTP_USER=noreply@germanzero.de
+      - SMTP_PWD=<smtp-password>
+      - MAIL_FROM=noreply@germanzero.de
+      - MC_APIKEY=<mailchimp-apikey>
+      - MC_LISTID=<mailchimp-listid>
+      - MC_WEBHOOK_CODE=<mailchimp-webhook>
+      - KEY=<64-digit-hex-key for encryption>
+      - IV=<32-digit-hex-key for encryption>
+      - CORS_ORIGIN=*
+      - LOGLEVEL=debug
+    volumes:
+      - /var/volumes/api:/app/store
+    networks:
+      - bastion
+      - kong-net
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.labels.name == germanzero-1
+
+networks:
+  bastion:
+    external: true
+  kong-net:
+    external: true
+

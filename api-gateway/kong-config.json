@@ -1,0 +1,503 @@
+{
+  "createdUser": null,
+  "updatedUser": null,
+  "name": "kong-config",
+  "kong_node_name": "Kong Seed",
+  "kong_node_url": "http://kong:8001",
+  "kong_version": "1.3.1",
+  "data": {
+    "services": [
+      {
+        "host": "wikijs_wikijs",
+        "created_at": 1576517316,
+        "connect_timeout": 60000,
+        "id": "0e3b2a36-71d3-40c8-a6ca-64101267d326",
+        "protocol": "http",
+        "name": "wiki",
+        "read_timeout": 60000,
+        "port": 3000,
+        "path": null,
+        "updated_at": 1576677549,
+        "retries": 5,
+        "write_timeout": 60000,
+        "tags": [],
+        "client_certificate": null,
+        "extras": {}
+      },
+      {
+        "host": "board_wekan",
+        "created_at": 1576517214,
+        "connect_timeout": 60000,
+        "id": "450913a0-883b-41c0-9b81-06c66689dafa",
+        "protocol": "http",
+        "name": "board",
+        "read_timeout": 60000,
+        "port": 8080,
+        "path": null,
+        "updated_at": 1576677561,
+        "retries": 5,
+        "write_timeout": 60000,
+        "tags": [],
+        "client_certificate": null,
+        "extras": {}
+      },
+      {
+        "host": "crm-test_api",
+        "created_at": 1576517158,
+        "connect_timeout": 60000,
+        "id": "5e77eef5-1c85-417f-9959-b4c7b9ac1c3d",
+        "protocol": "http",
+        "name": "api-test",
+        "read_timeout": 60000,
+        "port": 3000,
+        "path": null,
+        "updated_at": 1577808220,
+        "retries": 5,
+        "write_timeout": 60000,
+        "tags": [],
+        "client_certificate": null,
+        "extras": {}
+      },
+      {
+        "host": "api_api",
+        "created_at": 1576517353,
+        "connect_timeout": 60000,
+        "id": "638fd73a-5d23-4015-880d-907c4a54911b",
+        "protocol": "http",
+        "name": "api",
+        "read_timeout": 60000,
+        "port": 3000,
+        "path": null,
+        "updated_at": 1576671292,
+        "retries": 5,
+        "write_timeout": 60000,
+        "tags": [],
+        "client_certificate": null,
+        "extras": {}
+      },
+      {
+        "host": "crm-test_nginx",
+        "created_at": 1577504551,
+        "connect_timeout": 60000,
+        "id": "9c934db1-8dde-4ac7-85a9-4dc4febc926e",
+        "protocol": "http",
+        "name": "crm-test",
+        "read_timeout": 60000,
+        "port": 80,
+        "path": null,
+        "updated_at": 1579024519,
+        "retries": 5,
+        "write_timeout": 60000,
+        "tags": [],
+        "client_certificate": null,
+        "extras": {}
+      },
+      {
+        "host": "christmas_christmas",
+        "created_at": 1576600330,
+        "connect_timeout": 60000,
+        "id": "aa2b66de-2b2b-478a-b650-cacd7d24e584",
+        "protocol": "http",
+        "name": "christmas",
+        "read_timeout": 60000,
+        "port": 8000,
+        "path": null,
+        "updated_at": 1576601017,
+        "retries": 5,
+        "write_timeout": 60000,
+        "tags": [],
+        "client_certificate": null,
+        "extras": {}
+      },
+      {
+        "host": "kong-certbot-agent",
+        "created_at": 1576642501,
+        "connect_timeout": 60000,
+        "id": "c9b52efe-1502-41f7-97d4-e706b571cf7c",
+        "protocol": "http",
+        "name": "kong-certbot-agent",
+        "read_timeout": 60000,
+        "port": 80,
+        "path": null,
+        "updated_at": 1579965772,
+        "retries": 5,
+        "write_timeout": 60000,
+        "tags": [],
+        "client_certificate": null,
+        "extras": {}
+      }
+    ],
+    "routes": [
+      {
+        "id": "053d7164-bf67-4b1b-929d-533bbf6f2634",
+        "tags": null,
+        "updated_at": 1579971148,
+        "destinations": null,
+        "headers": null,
+        "protocols": [
+          "https"
+        ],
+        "created_at": 1577504587,
+        "snis": null,
+        "service": {
+          "id": "9c934db1-8dde-4ac7-85a9-4dc4febc926e"
+        },
+        "name": "crm-test",
+        "preserve_host": false,
+        "regex_priority": 0,
+        "strip_path": false,
+        "sources": null,
+        "paths": [],
+        "https_redirect_status_code": 426,
+        "hosts": [
+          "crmtest.germanzero.org"
+        ],
+        "methods": []
+      },
+      {
+        "id": "3f43e5af-abf2-43e3-a15f-8b4054eb3ef7",
+        "tags": null,
+        "updated_at": 1580032104,
+        "destinations": null,
+        "headers": null,
+        "protocols": [
+          "https"
+        ],
+        "created_at": 1577808261,
+        "snis": null,
+        "service": {
+          "id": "5e77eef5-1c85-417f-9959-b4c7b9ac1c3d"
+        },
+        "name": "api-test",
+        "preserve_host": false,
+        "regex_priority": 9,
+        "strip_path": false,
+        "sources": null,
+        "paths": [],
+        "https_redirect_status_code": 426,
+        "hosts": [
+          "api.germanzero.org"
+        ],
+        "methods": []
+      },
+      {
+        "id": "5c10f97f-d604-488c-b2bd-87d3cc4192e0",
+        "tags": null,
+        "updated_at": 1583060351,
+        "destinations": null,
+        "headers": null,
+        "protocols": [
+          "http"
+        ],
+        "created_at": 1576642730,
+        "snis": null,
+        "service": {
+          "id": "c9b52efe-1502-41f7-97d4-e706b571cf7c"
+        },
+        "name": "kong-certbot-agent",
+        "preserve_host": false,
+        "regex_priority": 2,
+        "strip_path": false,
+        "sources": null,
+        "paths": [
+          "/.well-known/acme-challenge",
+          "/\\.well-known/acme-challenge/.*"
+        ],
+        "https_redirect_status_code": 426,
+        "hosts": [
+          "board.germanzero.de",
+          "wiki.germanzero.de",
+          "weihnachten.germanzero.de",
+          "api.germanzero.de",
+          "api.germanzero.org",
+          "crmtest.germanzero.org",
+          "postkarte.germanzero.de"
+        ],
+        "methods": [
+          "GET"
+        ]
+      },
+      {
+        "id": "694de244-69c5-4513-940f-b34c1bc450c2",
+        "tags": null,
+        "updated_at": 1576646566,
+        "destinations": null,
+        "headers": null,
+        "protocols": [
+          "https"
+        ],
+        "created_at": 1576518916,
+        "snis": null,
+        "service": {
+          "id": "450913a0-883b-41c0-9b81-06c66689dafa"
+        },
+        "name": "board",
+        "preserve_host": false,
+        "regex_priority": 0,
+        "strip_path": true,
+        "sources": null,
+        "paths": [],
+        "https_redirect_status_code": 302,
+        "hosts": [
+          "board.germanzero.de"
+        ],
+        "methods": []
+      },
+      {
+        "id": "7c9e3ad8-b829-4d46-ab7d-45f3ca612346",
+        "tags": null,
+        "updated_at": 1576646535,
+        "destinations": null,
+        "headers": null,
+        "protocols": [
+          "https"
+        ],
+        "created_at": 1576518856,
+        "snis": null,
+        "service": {
+          "id": "0e3b2a36-71d3-40c8-a6ca-64101267d326"
+        },
+        "name": "wiki",
+        "preserve_host": false,
+        "regex_priority": 0,
+        "strip_path": true,
+        "sources": null,
+        "paths": [],
+        "https_redirect_status_code": 302,
+        "hosts": [
+          "wiki.germanzero.de"
+        ],
+        "methods": []
+      },
+      {
+        "id": "ad7942d3-30b9-4c15-a3af-4d61826a24f0",
+        "tags": null,
+        "updated_at": 1579967327,
+        "destinations": null,
+        "headers": null,
+        "protocols": [
+          "https"
+        ],
+        "created_at": 1576643881,
+        "snis": null,
+        "service": {
+          "id": "638fd73a-5d23-4015-880d-907c4a54911b"
+        },
+        "name": "api",
+        "preserve_host": false,
+        "regex_priority": 1,
+        "strip_path": true,
+        "sources": null,
+        "paths": [],
+        "https_redirect_status_code": 426,
+        "hosts": [
+          "api.germanzero.de"
+        ],
+        "methods": []
+      },
+      {
+        "id": "dc0bfdfc-9a6b-42d8-a645-e0eec2613a54",
+        "tags": null,
+        "updated_at": 1583060073,
+        "destinations": null,
+        "headers": null,
+        "protocols": [
+          "https"
+        ],
+        "created_at": 1576600376,
+        "snis": null,
+        "service": {
+          "id": "aa2b66de-2b2b-478a-b650-cacd7d24e584"
+        },
+        "name": "christmas",
+        "preserve_host": false,
+        "regex_priority": 0,
+        "strip_path": true,
+        "sources": null,
+        "paths": [],
+        "https_redirect_status_code": 302,
+        "hosts": [
+          "weihnachten.germanzero.de",
+          "postkarte.germanzero.de"
+        ],
+        "methods": []
+      }
+    ],
+    "consumers": [],
+    "plugins": [
+      {
+        "created_at": 1577255496,
+        "config": {
+          "minute": 10,
+          "policy": "local",
+          "month": null,
+          "redis_timeout": 2000,
+          "limit_by": "ip",
+          "hide_client_headers": false,
+          "second": null,
+          "day": null,
+          "redis_password": null,
+          "year": null,
+          "redis_database": 0,
+          "hour": null,
+          "redis_port": 6379,
+          "redis_host": null,
+          "fault_tolerant": true
+        },
+        "id": "42040fed-010d-4eb1-a096-5b3896d0e5eb",
+        "service": null,
+        "name": "rate-limiting",
+        "protocols": [
+          "grpc",
+          "grpcs",
+          "http",
+          "https"
+        ],
+        "enabled": true,
+        "run_on": "first",
+        "consumer": null,
+        "route": {
+          "id": "ad7942d3-30b9-4c15-a3af-4d61826a24f0"
+        },
+        "tags": null
+      },
+      {
+        "created_at": 1583185298,
+        "config": {
+          "whitelist": [],
+          "blacklist": []
+        },
+        "id": "6ba3cb42-4d00-4545-8897-16695b1f4f06",
+        "service": null,
+        "name": "bot-detection",
+        "protocols": [
+          "grpc",
+          "grpcs",
+          "http",
+          "https"
+        ],
+        "enabled": true,
+        "run_on": "first",
+        "consumer": null,
+        "route": null,
+        "tags": null
+      },
+      {
+        "created_at": 1577900319,
+        "config": {
+          "allowed_payload_size": 16
+        },
+        "id": "977271cc-606c-461c-923c-e6f39cd825c2",
+        "service": null,
+        "name": "request-size-limiting",
+        "protocols": [
+          "grpc",
+          "grpcs",
+          "http",
+          "https"
+        ],
+        "enabled": true,
+        "run_on": "first",
+        "consumer": null,
+        "route": null,
+        "tags": null
+      },
+      {
+        "created_at": 1577900333,
+        "config": {},
+        "id": "f1ea3f97-8f57-4fae-832a-bae0567519f3",
+        "service": null,
+        "name": "prometheus",
+        "protocols": [
+          "grpc",
+          "grpcs",
+          "http",
+          "https"
+        ],
+        "enabled": true,
+        "run_on": "first",
+        "consumer": null,
+        "route": null,
+        "tags": null
+      }
+    ],
+    "acls": [],
+    "upstreams": [],
+    "certificates": [
+      {
+        "created_at": 1588154404,
+        "cert": "-----BEGIN CERTIFICATE-----\nYou should create new certificates!\n-----END CERTIFICATE-----\n",
+        "id": "648489bf-d97e-4e36-a110-f6bdabe58968",
+        "tags": null,
+        "key": "-----BEGIN PRIVATE KEY-----\nYou should create new certificates!\n-----END PRIVATE KEY-----\n",
+        "snis": [
+          "api.germanzero.de",
+          "api.germanzero.org",
+          "board.germanzero.de",
+          "crmtest.germanzero.org",
+          "weihnachten.germanzero.de",
+          "wiki.germanzero.de"
+        ]
+      }
+    ],
+    "snis": [
+      {
+        "created_at": 1580032347,
+        "id": "0a7c8f99-301a-4f29-8bb5-4a1c9f27bfe9",
+        "tags": null,
+        "name": "crmtest.germanzero.org",
+        "certificate": {
+          "id": "648489bf-d97e-4e36-a110-f6bdabe58968"
+        }
+      },
+      {
+        "created_at": 1579967638,
+        "id": "25a841a5-a361-4d3f-99e1-7e4aa4539af3",
+        "tags": null,
+        "name": "api.germanzero.de",
+        "certificate": {
+          "id": "648489bf-d97e-4e36-a110-f6bdabe58968"
+        }
+      },
+      {
+        "created_at": 1579967638,
+        "id": "40055508-bdcc-4b16-93d1-1d225c582660",
+        "tags": null,
+        "name": "wiki.germanzero.de",
+        "certificate": {
+          "id": "648489bf-d97e-4e36-a110-f6bdabe58968"
+        }
+      },
+      {
+        "created_at": 1579967638,
+        "id": "44abbf5b-b432-4bc9-a093-7e1036a0623f",
+        "tags": null,
+        "name": "board.germanzero.de",
+        "certificate": {
+          "id": "648489bf-d97e-4e36-a110-f6bdabe58968"
+        }
+      },
+      {
+        "created_at": 1580032347,
+        "id": "8d208f43-088f-431a-8716-d64ae512fc74",
+        "tags": null,
+        "name": "api.germanzero.org",
+        "certificate": {
+          "id": "648489bf-d97e-4e36-a110-f6bdabe58968"
+        }
+      },
+      {
+        "created_at": 1579967638,
+        "id": "a2678334-bbbc-4226-beab-ed0688a9f83e",
+        "tags": null,
+        "name": "weihnachten.germanzero.de",
+        "certificate": {
+          "id": "648489bf-d97e-4e36-a110-f6bdabe58968"
+        }
+      }
+    ]
+  },
+  "createdAt": "2020-04-29T16:14:57.483Z",
+  "updatedAt": "2020-04-29T16:14:57.483Z",
+  "id": 1
+}

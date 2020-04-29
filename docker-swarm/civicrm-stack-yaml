@@ -1,0 +1,50 @@
+version: '3.7'
+
+services:
+  nginx:
+    image: germanzero/nginx
+    volumes:
+      - /var/apps/civicrm/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - /var/apps/civicrm/drupal:/var/www/html/
+    networks:
+      - internal
+      - bastion
+    deploy:
+      placement:
+        constraints:
+          - node.labels.name == germanzero-2
+  
+  php:
+    image: germanzero/civicrm
+    volumes:
+      - /var/apps/civicrm/php/www.conf:/usr/local/etc/php-fpm.d/www.conf
+      - /var/apps/civicrm/drupal:/var/www/html/
+    networks:
+      - internal
+    deploy:
+      placement:
+        constraints:
+          - node.labels.name == germanzero-2
+
+  db:
+    image: mariadb:10.4
+    environment:
+      - MYSQL_ROOT_PASSWORD=<database-root-password>
+      - MYSQL_DATABASE=drupal
+      - MYSQL_USER=<database-user>
+      - MYSQL_PASSWORD=<database-user-password>
+    volumes:
+      - /var/apps/civicrm/mysql:/var/lib/mysql
+    networks:
+      - internal
+    deploy:
+      placement:
+        constraints:
+          - node.labels.name == germanzero-2
+
+networks:
+  internal:
+    driver: overlay
+    attachable: true
+  bastion:
+    external: true

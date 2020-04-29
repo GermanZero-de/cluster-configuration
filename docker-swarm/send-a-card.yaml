@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  christmas:
+    image: germanzero/christmas:latest
+    environment:
+      - LOG_LEVEL=DEBUG
+    networks:
+      - kong-net
+    deploy:
+      placement:
+        constraints:
+          - node.labels.name == germanzero-1
+
+networks:
+  kong-net:
+    external: true

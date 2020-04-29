@@ -1,0 +1,47 @@
+version: '3.7'
+services:
+  db:
+    image: postgres:9.6-alpine
+    environment:
+      POSTGRES_DB: <database-name>
+      POSTGRES_PASSWORD: <database-password>
+      POSTGRES_USER: <database-username>
+    volumes:
+      - /var/volumes/wiki/postgres:/var/lib/postgresql/data
+    networks:
+      - wiki-internal
+    deploy:
+      placement:
+        constraints:
+          - node.labels.name == germanzero-1
+
+  wikijs:
+    image: 'requarks/wiki:2'
+    depends_on:
+      - db
+#    ports:
+#      - '3001:3000'
+    environment:
+      DB_TYPE: postgres
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: <database-name>
+      DB_USER: <database-username>
+      DB_PASS: <database-password>
+    volumes:
+      - /var/volumes/wiki/config.yml:/var/wiki/config.yml
+      - /var/volumes/wiki/repo:/var/wiki/repo
+    networks:
+      - wiki-internal
+      - kong-net
+    deploy:
+      placement:
+        constraints:
+          - node.labels.name == germanzero-1
+
+networks:
+  wiki-internal:
+    driver: overlay
+  kong-net:
+    external: true
+  
